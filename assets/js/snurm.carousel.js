@@ -6,10 +6,10 @@ const albums = [
       description: 'Football club photos and memories',
       imageCount: 4,
       imagePaths: [
-          '../images/face-paint (2).webp',
-          '../images/face-paint (3).webp',
-          '../images/face-paint (4).webp',
-          '../images/face-paint (5).webp'
+          '.../images/face-paint (2).webp',
+          '.../images/face-paint (3).webp',
+          '.../images/face-paint (4).webp',
+          '.../images/face-paint (5).webp'
           
       ]
   },
@@ -19,16 +19,16 @@ const albums = [
       description: 'Various events and excursions',
       imageCount: 10,
       imagePaths: [
-          '../images/232.webp',
-          '../images/191.webp',
-          '../images/317.webp',
-          '../images/544.webp',
-          '../images/554.webp',
-          '../images/574.webp',
-          '../images/581.webp',
-          '../images/787.webp',
-          '../images/864.webp',
-          '../images/93.webp'
+          '.../images/232.webp',
+          '.../images/191.webp',
+          '.../images/317.webp',
+          '.../images/544.webp',
+          '.../images/554.webp',
+          '.../images/574.webp',
+          '.../images/581.webp',
+          '.../images/787.webp',
+          '.../images/864.webp',
+          '.../images/93.webp'
           
       ]
   },
@@ -38,15 +38,15 @@ const albums = [
       description: 'Educational activities and achievements',
       imageCount: 10,
       imagePaths: [
-          '../images/ROA.webp',
-          '../images/ROA1.webp',
-          '../images/ROA2.webp',
-          '../images/ROA3.webp',
-          '../images/ROA4.webp',
-          '../images/ROA5.webp',
-          '../images/ROA7.jpg',
-          '../images/ROA8.jpg',
-          '../images/ROA10.jpg'
+          '.../images/ROA.webp',
+          '.../images/ROA1.webp',
+          '.../images/ROA2.webp',
+          '.../images/ROA3.webp',
+          '.../images/ROA4.webp',
+          '.../images/ROA5.webp',
+          '.../images/ROA7.jpg',
+          '.../images/ROA8.jpg',
+          '.../images/ROA10.jpg'
           
       ]
   }
