@@ -1,5 +1,3 @@
-// Configuration for repository path - change this based on your GitHub Pages setup
-const REPO_PATH = 'sadikmohamud.github.io/lamsom-new'; // Leave empty for username.github.io, or add '/repository-name' for project sites
 
 // Album data with image paths
 const albums = [
