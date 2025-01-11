@@ -6,10 +6,10 @@ const albums = [
       description: 'Football club photos and memories',
       imageCount: 4,
       imagePaths: [
-          '.../images/face-paint (2).webp',
-          '.../images/face-paint (3).webp',
-          '.../images/face-paint (4).webp',
-          '.../images/face-paint (5).webp'
+          './assets/images/face-paint (2).webp',
+          './assets/images/face-paint (3).webp',
+          './assets/images/face-paint (4).webp',
+          './assets/images/face-paint (5).webp'
           
       ]
   },
@@ -19,16 +19,16 @@ const albums = [
       description: 'Various events and excursions',
       imageCount: 10,
       imagePaths: [
-          '.../images/232.webp',
-          '.../images/191.webp',
-          '.../images/317.webp',
-          '.../images/544.webp',
-          '.../images/554.webp',
-          '.../images/574.webp',
-          '.../images/581.webp',
-          '.../images/787.webp',
-          '.../images/864.webp',
-          '.../images/93.webp'
+          './assets/images/232.webp',
+          './assets/images/191.webp',
+          './assets/images/317.webp',
+          './assets/images/544.webp',
+          './assets/images/554.webp',
+          './assets/images/574.webp',
+          './assets/images/581.webp',
+          './assets/images/787.webp',
+          './assets/images/864.webp',
+          './assets/images/93.webp'
           
       ]
   },
@@ -38,15 +38,15 @@ const albums = [
       description: 'Educational activities and achievements',
       imageCount: 10,
       imagePaths: [
-          '.../images/ROA.webp',
-          '.../images/ROA1.webp',
-          '.../images/ROA2.webp',
-          '.../images/ROA3.webp',
-          '.../images/ROA4.webp',
-          '.../images/ROA5.webp',
-          '.../images/ROA7.jpg',
-          '.../images/ROA8.jpg',
-          '.../images/ROA10.jpg'
+          './assets/images/ROA.webp',
+          './assets/images/ROA1.webp',
+          './assets/images/ROA2.webp',
+          './assets/images/ROA3.webp',
+          './assets/images/ROA4.webp',
+          './assets/images/ROA5.webp',
+          './assets/images/ROA7.jpg',
+          './assets/images/ROA8.jpg',
+          './asstes/images/ROA10.jpg'
           
       ]
   }
