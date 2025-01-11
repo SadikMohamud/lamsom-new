@@ -6,10 +6,10 @@ const albums = [
       description: 'Football club photos and memories',
       imageCount: 4,
       imagePaths: [
-          './assets/images/face-paint (2).webp',
-          './assets/images/face-paint (3).webp',
-          './assets/images/face-paint (4).webp',
-          './assets/images/face-paint (5).webp'
+          '.../assets/images/face-paint (2).webp',
+          '.../assets/images/face-paint (3).webp',
+          '.../assets/images/face-paint (4).webp',
+          '.../assets/images/face-paint (5).webp'
       ]
   },
   {
