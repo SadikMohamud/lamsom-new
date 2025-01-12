@@ -631,25 +631,24 @@ main-section
 }
 
 /* 
-/* ---------------------------------------------
+/* /* ---------------------------------------------
 banner
 --------------------------------------------- */
 
 .main-banner {
     position: relative;
-    overflow: hidden; /* Prevents video from overflowing on some devices */
+    width: 100%; /* Ensure banner takes full width */
+    height: 100vh; /* Important for full-viewport height */
+    overflow: hidden; /* Prevents video overflow */
 }
 
 #bg-video {
-    min-width: 100%;
-    min-height: 100vh;
-    width: auto; /* Important for responsiveness */
-    height: auto; /* Important for responsiveness */
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%); /* Center the video */
-    object-fit: cover;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Crucial: Covers the entire container */
     z-index: -1;
 }
 
@@ -659,43 +658,42 @@ banner
 
 .video-overlay {
     position: absolute;
-    background-color: rgba(35, 45, 57, 0.8);
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%; /* Cover the entire video area */
+    height: 100%;
+    background-color: rgba(35, 45, 57, 0.8);
+    display: flex; /* Use flexbox for centering */
+    justify-content: center;
+    align-items: center;
 }
 
 .main-banner .caption {
     text-align: center;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 90%; /* Use percentage for responsiveness */
-    max-width: 1200px; /* Optional: Set a max width */
-    padding: 20px; /* Add some padding */
-    box-sizing: border-box; /* Include padding in width calculation */
+    width: 90%;
+    max-width: 1200px;
+    padding: 20px;
+    box-sizing: border-box;
 }
 
 .main-banner .caption h6 {
     margin-top: 0;
-    font-size: 1.2em; /* Use relative units */
+    font-size: 1.2em;
     text-transform: uppercase;
     font-weight: 800;
     color: #fff;
-    letter-spacing: 0.05em; /* Use relative units */
+    letter-spacing: 0.05em;
 }
 
 .main-banner .caption h2 {
     margin-top: 1em;
     margin-bottom: 0.8em;
-    font-size: 3em; /* Use relative units */
+    font-size: 3em;
     text-transform: uppercase;
     font-weight: 800;
     color: #fff;
-    letter-spacing: 0.1em; /* Use relative units */
-    line-height: 1.2; /* Improve line height for better readability */
+    letter-spacing: 0.1em;
+    line-height: 1.2;
 }
 
 .main-banner .caption h2 em {
@@ -704,7 +702,7 @@ banner
     font-weight: 900;
 }
 
-/* Media Queries for Responsiveness */
+/* Media Queries */
 @media (max-width: 992px) {
     .main-banner .caption h2 {
         font-size: 2.5em;
@@ -726,7 +724,6 @@ banner
         font-size: 1.5em;
     }
 }
-
 
 
 /*
