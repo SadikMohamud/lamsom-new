@@ -17,7 +17,6 @@ figure, header, nav, section, article, aside, footer, figcaption {
   padding: 0;
   border: 0;
   outline: 0;
-  height: 100%; /* Ensure full viewport height */
 }
 
 .clearfix:after {
@@ -88,7 +87,141 @@ p {
 
 
 
+/*----------------------------------------
+falling polaroid pictures
+----------------------------------------------
+*/
+.polaroid {
+  position: absolute;
+  width: 15vw;
+  padding: 15px 15px 30px 15px;
+  background: white;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  transform-origin: center;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  z-index: 100; /* Higher than footer */
+  --final-y: calc(100vh - 150px); /* Stops 150px before footer */
 
+}
+
+.polaroid:hover {
+  transform: scale(1.05) !important;
+  z-index: 1000 !important;
+}
+
+.polaroid img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+
+.polaroid .caption {
+  font-family: 'Comic Sans MS', cursive;
+  text-align: center;
+  color: #333;
+}
+
+.tape {
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  transform: translateX(-50%) rotate(var(--tape-rotate));
+  width: 60px;
+  height: 30px;
+  background: rgba(255,255,255,0.6);
+  border-radius: 3px;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.9);
+  z-index: 2000;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.modal.active {
+  display: flex;
+  opacity: 1;
+}
+
+.modal-content {
+  position: relative;
+  margin: auto;
+  max-width: 90%;
+  max-height: 90vh;
+  transform: scale(0.7);
+  transition: transform 0.3s ease;
+}
+
+.modal.active .modal-content {
+  transform: scale(1);
+}
+
+.modal-image {
+  max-width: 100%;
+  max-height: 80vh;
+  object-fit: contain;
+  border: 15px solid white;
+  box-shadow: 0 0 20px rgba(0,0,0,0.3);
+}
+
+.modal-caption {
+  color: white;
+  text-align: center;
+  padding: 20px;
+  font-size: 1.2em;
+  font-family: 'Comic Sans MS', cursive;
+}
+
+.close-button {
+  position: absolute;
+  top: -40px;
+  right: -40px;
+  width: 40px;
+  height: 40px;
+  background: white;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+}
+
+@keyframes fall {
+  0% {
+      transform: translateY(-120%) rotate(var(--initial-rotate));
+      opacity: 0;
+  }
+  30% {
+      opacity: 1;
+  }
+  100% {
+      transform: translateY(var(--final-y)) rotate(var(--final-rotate));
+  }
+}
+
+.section {
+  position: relative;
+  overflow: hidden; /* Prevents overflow outside container */
+}
+
+footer {
+  position: relative;
+  z-index: 10; /* Lower than Polaroids */
+}
+
+/*
 ---------------------------------------------
 global styles
 --------------------------------------------- 
@@ -632,9 +765,10 @@ main-section
 }
 
 /* 
-/* ---------------------------------------------
+---------------------------------------------
 banner
---------------------------------------------- */
+--------------------------------------------- 
+*/
 
 .main-banner {
   position: relative;
@@ -658,7 +792,7 @@ banner
     background-color: rgba(35,45,57,0.8);
     top: 0;
     left: 0;
-    bottom: 7px; /* This was a problem */
+    bottom: 7px;
     width: 100%;
 }
 
@@ -696,9 +830,8 @@ banner
   font-weight: 900;
 }
 
- 
 
-/* 
+/*
 ---------------------------------------------
 features
 ---------------------------------------------
@@ -910,7 +1043,7 @@ schedule
 #schedule table {
   width: 100%;
   text-align: center;
-  border: 1px solid #01ffff;
+  border: 1px solid #fff;
 }
 
 #schedule table tbody {
@@ -1477,6 +1610,29 @@ dark-mode toggle switch
 dark-mode toggle switch
 --------------------------------------------- 
 */
+body.dark-mode {
+  background-color: #121212;
+  color: #ffffff;
+}
+
+body.dark-mode a {
+  color: #ffffff;
+}
+
+body.dark-mode .header-area {
+  background-color: #1f1f1f;
+}
+
+body.dark-mode .caption h1,
+body.dark-mode .caption h3 {
+  color: #ffffff;
+}
+
+body.dark-mode *:not(em) {
+  color: #ffffff;
+}
+
+/* Add more dark mode styles as needed */
 
 /* 
 ---------------------------------------------
@@ -1550,174 +1706,6 @@ contact page------------*/
 responsive
 --------------------------------------------- 
 */
-
-
-
-
-
-
-/* Media Queries for Responsiveness */
-
-/* General adjustments for smaller screens */
-@media (max-width: 991px) {
-  html, body {
-    overflow-x: hidden; /* Prevent horizontal scrollbar */
-  }
-  .mobile-top-fix {
-    margin-top: 30px;
-    margin-bottom: 0px;
-  }
-  .mobile-bottom-fix {
-    margin-bottom: 30px;
-  }
-  .mobile-bottom-fix-big {
-    margin-bottom: 60px;
-  }
-  .polaroid {
-    width: 30vw; /* Make polaroids wider on smaller screens */
-  }
-  .modal-content {
-    max-width: 95%; /* Adjust modal width */
-  }
-  .p {
-    font-size: 24px; /* Smaller paragraph font size */
-    line-height: 32px;
-  }
-}
-
-/* Adjustments for even smaller screens (typically mobile) */
-@media (max-width: 767px) {
-  .polaroid {
-    width: 45vw; /* Even wider polaroids */
-  }
-    .main-banner .caption h2 {
-    font-size: 48px; /* Smaller heading on mobile */
-  }
-    .cta-content p {
-    font-size: 24px;
-  }
-    .tabs-content p {
-    font-size: 16px;
-  }
-  .photos-grid {
-        grid-template-columns: repeat(1, 1fr);
-    }
-}
-
-/* Header responsiveness */
-@media (max-width: 1200px) {
-  .header-area .main-nav .nav li {
-    padding-left: 12px;
-    padding-right: 12px;
-  }
-  .header-area .main-nav:before {
-    display: none;
-  }
-}
-
-@media (max-width: 767px) {
-  .header-area .main-nav .logo {
-    color: #1e1e1e;
-  }
-  .header-area.header-sticky .nav li a:hover,
-  .header-area.header-sticky .nav li a.active {
-    color: #3bd5c8!important;
-    opacity: 1;
-  }
-  .header-area {
-    background-color: #f7f7f7;
-    padding: 0px 15px;
-    height: 80px;
-    box-shadow: none;
-    text-align: center;
-  }
-  .header-area .container {
-    padding: 0px;
-  }
-  .header-area .logo {
-    margin-left: 30px;
-  }
-  .header-area .menu-trigger {
-    display: block !important;
-  }
-  .header-area .main-nav {
-    overflow: hidden;
-  }
-  .header-area .main-nav .nav {
-    float: none;
-    width: 100%;
-    display: none;
-    -webkit-transition: all 0s ease 0s;
-    -moz-transition: all 0s ease 0s;
-    -o-transition: all 0s ease 0s;
-    transition: all 0s ease 0s;
-    margin-left: 0px;
-  }
-   .header-area .main-nav .nav li {
-    width: 100%;
-    background: #fff;
-    border-bottom: 1px solid #eee;
-    padding-left: 0px !important;
-    padding-right: 0px !important;
-  }
-  .header-area .main-nav .nav li a {
-    height: 50px !important;
-    line-height: 50px !important;
-    padding: 0px !important;
-    border: none !important;
-    background: #f7f7f7 !important;
-    color: #232d39 !important;
-  }
-  .header-area .main-nav .nav li:last-child a {
-    color: #fff!important;
-  }
-  .header-area .main-nav .nav li a:hover {
-    background: #eee !important;
-    color: #3bd5c8!important;
-  }
-}
-
-@media (min-width: 767px) {
-  .header-area .main-nav .nav {
-    display: flex !important;
-  }
-}
-
-
-/* Contact Page Responsiveness */
-@media (max-width: 1200px) {
-  #contact-us .col-lg-6 {
-    max-width: 100%;
-    flex-basis: 100%;
-  }
-
-  #contact-us .contact-form {
-    padding: 40px;
-  }
-}
-
-@media (max-width: 768px) {
-  #contact-us {
-    margin-top: 80px;
-  }
-
-  #contact-us .contact-form #contact {
-    padding: 20px;
-  }
-
-  .contact-form button {
-    padding: 10px 15px;
-  }
-}
-
-@media (min-width: 1440px) {
-  #contact-us .contact-form {
-    padding: 100px;
-  }
-}
-
-
-
 
 
 @media (max-width: 992px) {
