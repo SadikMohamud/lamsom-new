@@ -1708,35 +1708,7 @@ responsive
 */
 
 
-.video-overlay {
-    /* Ensure overlay covers the video/parent */
-    position: absolute; /* Or relative if not overlaying */
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center; /* Center horizontally */
-    align-items: center;     /* Center vertically */
-    flex-direction: column; /* Stack elements vertically */
-    text-align: center; /* Center text within caption */
-    /* Add background color with some transparency if needed */
-    background-color: rgba(0, 0, 0, 0.5); /* Example: semi-transparent black */
-}
 
-.caption {
-    /* Add padding if needed */
-    padding: 20px;
-    /* Optional: set a max-width to prevent excessive stretching on large screens */
-    max-width: 90%; /* Adjust as needed */
-}
-
-h6 {
-    /* Style your heading */
-    color: white; /* Example */
-    font-size: 1.5em; /* Example */
-    margin-bottom: 10px;
-}
 
 .responsive-image {
     max-width: 100%; /* Image will never be wider than its container */
