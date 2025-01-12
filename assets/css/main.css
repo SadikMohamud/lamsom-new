@@ -637,104 +637,86 @@ banner
 --------------------------------------------- */
 
 .main-banner {
-    position: relative;
-    width: 100%; /* Ensure banner takes full width */
-    height: 100vh; /* Important for full-viewport height */
-    overflow: hidden; /* Prevents video overflow */
-}
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+        }
 
-#bg-video {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Crucial: Covers the entire container */
-    z-index: -1;
-}
+        #bg-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
 
-#bg-video::-webkit-media-controls {
-    display: none !important;
-}
+        .video-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(35, 45, 57, 0.8);
+            display: flex;
+            flex-direction: column;
+            justify-content: center; /* Vertical centering */
+            align-items: center;     /* Horizontal centering */
+        }
 
-.video-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(35, 45, 57, 0.8);
-    display: flex; /* Use flexbox for centering */
-    justify-content: center;
-    align-items: center;
-}
-
- .main-banner .caption {
+        .caption { /* Renamed for clarity */
             text-align: center;
             width: 90%;
             max-width: 1200px;
             padding: 20px;
             box-sizing: border-box;
             color: white;
-            display: flex; /* Use flexbox for logo and text */
-            flex-direction: column; /* Stack logo and text vertically */
+            display: flex;
+            flex-direction: column;
             align-items: center; /* Center horizontally within caption */
         }
-        .main-banner .caption img{
+
+        .caption img {
             max-width: 100%;
             height: auto;
-            margin-bottom: 20px; /* Add some space below the logo */
-}
+            margin-bottom: 20px;
+        }
 
-.main-banner .caption h6 {
-    margin-top: 0;
-    font-size: 1.2em;
-    text-transform: uppercase;
-    font-weight: 800;
-    color: #fff;
-    letter-spacing: 0.05em;
-}
+        .caption h6 {
+            margin-top: 0;
+            font-size: 1.2em;
+            text-transform: uppercase;
+            font-weight: 800;
+            letter-spacing: 0.05em;
+        }
 
-.main-banner .caption h2 {
-    margin-top: 1em;
-    margin-bottom: 0.8em;
-    font-size: 3em;
-    text-transform: uppercase;
-    font-weight: 800;
-    color: #fff;
-    letter-spacing: 0.1em;
-    line-height: 1.2;
-}
+        .caption h2 {
+            margin-top: 1em;
+            margin-bottom: 0.8em;
+            font-size: 3em;
+            text-transform: uppercase;
+            font-weight: 800;
+            letter-spacing: 0.1em;
+            line-height: 1.2;
+        }
 
-.main-banner .caption h2 em {
-    font-style: normal;
-    color: #3bd5c8;
-    font-weight: 900;
-}
+        .caption h2 em {
+            font-style: normal;
+            color: #3bd5c8;
+            font-weight: 900;
+        }
 
-/* Media Queries */
-@media (max-width: 992px) {
-    .main-banner .caption h2 {
-        font-size: 2.5em;
-    }
-}
-
-@media (max-width: 768px) {
-    .main-banner .caption h2 {
-        font-size: 2em;
-    }
-
-    .main-banner .caption h6 {
-        font-size: 1em;
-    }
-}
-
-@media (max-width: 576px) {
-    .main-banner .caption h2 {
-        font-size: 1.5em;
-    }
-}
-
+        /* Media Queries */
+        @media (max-width: 768px) {
+            .caption h2 {
+                font-size: 2em;
+            }
+            .caption h6 {
+                font-size: 1em;
+            }
+        }
 
 /*
 ---------------------------------------------
