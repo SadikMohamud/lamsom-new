@@ -87,141 +87,7 @@ p {
 
 
 
-/*----------------------------------------
-falling polaroid pictures
-----------------------------------------------
-*/
-.polaroid {
-  position: absolute;
-  width: 15vw;
-  padding: 15px 15px 30px 15px;
-  background: white;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-  transform-origin: center;
-  cursor: pointer;
-  transition: transform 0.3s ease;
-  z-index: 100; /* Higher than footer */
-  --final-y: calc(100vh - 150px); /* Stops 150px before footer */
 
-}
-
-.polaroid:hover {
-  transform: scale(1.05) !important;
-  z-index: 1000 !important;
-}
-
-.polaroid img {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-  margin-bottom: 10px;
-}
-
-.polaroid .caption {
-  font-family: 'Comic Sans MS', cursive;
-  text-align: center;
-  color: #333;
-}
-
-.tape {
-  position: absolute;
-  top: -20px;
-  left: 50%;
-  transform: translateX(-50%) rotate(var(--tape-rotate));
-  width: 60px;
-  height: 30px;
-  background: rgba(255,255,255,0.6);
-  border-radius: 3px;
-}
-
-.modal {
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.9);
-  z-index: 2000;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-.modal.active {
-  display: flex;
-  opacity: 1;
-}
-
-.modal-content {
-  position: relative;
-  margin: auto;
-  max-width: 90%;
-  max-height: 90vh;
-  transform: scale(0.7);
-  transition: transform 0.3s ease;
-}
-
-.modal.active .modal-content {
-  transform: scale(1);
-}
-
-.modal-image {
-  max-width: 100%;
-  max-height: 80vh;
-  object-fit: contain;
-  border: 15px solid white;
-  box-shadow: 0 0 20px rgba(0,0,0,0.3);
-}
-
-.modal-caption {
-  color: white;
-  text-align: center;
-  padding: 20px;
-  font-size: 1.2em;
-  font-family: 'Comic Sans MS', cursive;
-}
-
-.close-button {
-  position: absolute;
-  top: -40px;
-  right: -40px;
-  width: 40px;
-  height: 40px;
-  background: white;
-  border: none;
-  border-radius: 50%;
-  cursor: pointer;
-  font-size: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 0 10px rgba(0,0,0,0.3);
-}
-
-@keyframes fall {
-  0% {
-      transform: translateY(-120%) rotate(var(--initial-rotate));
-      opacity: 0;
-  }
-  30% {
-      opacity: 1;
-  }
-  100% {
-      transform: translateY(var(--final-y)) rotate(var(--final-rotate));
-  }
-}
-
-.section {
-  position: relative;
-  overflow: hidden; /* Prevents overflow outside container */
-}
-
-footer {
-  position: relative;
-  z-index: 10; /* Lower than Polaroids */
-}
-
-/*
 ---------------------------------------------
 global styles
 --------------------------------------------- 
@@ -765,20 +631,24 @@ main-section
 }
 
 /* 
----------------------------------------------
+/* ---------------------------------------------
 banner
---------------------------------------------- 
-*/
+--------------------------------------------- */
 
 .main-banner {
-  position: relative;
+    position: relative;
+    overflow: hidden; /* Prevents video from overflowing on some devices */
 }
 
 #bg-video {
     min-width: 100%;
     min-height: 100vh;
-    max-width: 100%;
-    max-height: 100vh;
+    width: auto; /* Important for responsiveness */
+    height: auto; /* Important for responsiveness */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Center the video */
     object-fit: cover;
     z-index: -1;
 }
@@ -789,46 +659,74 @@ banner
 
 .video-overlay {
     position: absolute;
-    background-color: rgba(35,45,57,0.8);
+    background-color: rgba(35, 45, 57, 0.8);
     top: 0;
     left: 0;
-    bottom: 7px;
     width: 100%;
+    height: 100%; /* Cover the entire video area */
 }
 
 .main-banner .caption {
-  text-align: center;
-  position: absolute;
-  width: 80%;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%,-50%);
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%; /* Use percentage for responsiveness */
+    max-width: 1200px; /* Optional: Set a max width */
+    padding: 20px; /* Add some padding */
+    box-sizing: border-box; /* Include padding in width calculation */
 }
 
 .main-banner .caption h6 {
-  margin-top: 0px;
-  font-size: 18px;
-  text-transform: uppercase;
-  font-weight: 800;
-  color: #fff;
-  letter-spacing: 0.5px;
+    margin-top: 0;
+    font-size: 1.2em; /* Use relative units */
+    text-transform: uppercase;
+    font-weight: 800;
+    color: #fff;
+    letter-spacing: 0.05em; /* Use relative units */
 }
 
 .main-banner .caption h2 {
-  margin-top: 30px;
-  margin-bottom: 25px;
-  font-size: 84px;
-  text-transform: uppercase;
-  font-weight: 800;
-  color: #fff;
-  letter-spacing: 1px;
+    margin-top: 1em;
+    margin-bottom: 0.8em;
+    font-size: 3em; /* Use relative units */
+    text-transform: uppercase;
+    font-weight: 800;
+    color: #fff;
+    letter-spacing: 0.1em; /* Use relative units */
+    line-height: 1.2; /* Improve line height for better readability */
 }
 
 .main-banner .caption h2 em {
-  font-style: normal;
-  color: #3bd5c8;
-  font-weight: 900;
+    font-style: normal;
+    color: #3bd5c8;
+    font-weight: 900;
 }
+
+/* Media Queries for Responsiveness */
+@media (max-width: 992px) {
+    .main-banner .caption h2 {
+        font-size: 2.5em;
+    }
+}
+
+@media (max-width: 768px) {
+    .main-banner .caption h2 {
+        font-size: 2em;
+    }
+
+    .main-banner .caption h6 {
+        font-size: 1em;
+    }
+}
+
+@media (max-width: 576px) {
+    .main-banner .caption h2 {
+        font-size: 1.5em;
+    }
+}
+
 
 
 /*
