@@ -669,12 +669,21 @@ banner
     align-items: center;
 }
 
-.main-banner .caption {
-    text-align: center;
-    width: 90%;
-    max-width: 1200px;
-    padding: 20px;
-    box-sizing: border-box;
+ .main-banner .caption {
+            text-align: center;
+            width: 90%;
+            max-width: 1200px;
+            padding: 20px;
+            box-sizing: border-box;
+            color: white;
+            display: flex; /* Use flexbox for logo and text */
+            flex-direction: column; /* Stack logo and text vertically */
+            align-items: center; /* Center horizontally within caption */
+        }
+        .main-banner .caption img{
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 20px; /* Add some space below the logo */
 }
 
 .main-banner .caption h6 {
