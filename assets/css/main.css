@@ -17,6 +17,7 @@ figure, header, nav, section, article, aside, footer, figcaption {
   padding: 0;
   border: 0;
   outline: 0;
+  height: 100%; /* Ensure full viewport height */
 }
 
 .clearfix:after {
