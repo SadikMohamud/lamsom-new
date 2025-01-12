@@ -1610,29 +1610,6 @@ dark-mode toggle switch
 dark-mode toggle switch
 --------------------------------------------- 
 */
-body.dark-mode {
-  background-color: #121212;
-  color: #ffffff;
-}
-
-body.dark-mode a {
-  color: #ffffff;
-}
-
-body.dark-mode .header-area {
-  background-color: #1f1f1f;
-}
-
-body.dark-mode .caption h1,
-body.dark-mode .caption h3 {
-  color: #ffffff;
-}
-
-body.dark-mode *:not(em) {
-  color: #ffffff;
-}
-
-/* Add more dark mode styles as needed */
 
 /* 
 ---------------------------------------------
@@ -1710,24 +1687,7 @@ responsive
 
 
 
-.responsive-image {
-    max-width: 100%; /* Image will never be wider than its container */
-    height: auto;    /* Maintain aspect ratio */
-    display: block; /* Prevents small gap below image in some cases */
-}
 
-/* Optional: Media queries for finer control */
-@media (max-width: 768px) { /* Example breakpoint for tablets */
-    h6 {
-        font-size: 1.2em;
-    }
-}
-
-@media (max-width: 576px) { /* Example breakpoint for mobile phones */
-    h6 {
-        font-size: 1em;
-    }
-}
 
 /* Media Queries for Responsiveness */
 
