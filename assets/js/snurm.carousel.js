@@ -1,5 +1,4 @@
-
-// Album data with image paths
+// Album data with correct paths for images in assets/images
 const albums = [
     {
         id: 'stockwell-fc',
@@ -7,10 +6,10 @@ const albums = [
         description: 'Football club photos and memories',
         imageCount: 4,
         imagePaths: [
-            'images/face-paint (2).webp',
-            'images/face-paint (3).webp',
-            'images/face-paint (4).webp',
-            'images/face-paint (5).webp'
+            'assets/images/face-paint (2).webp',
+            'assets/images/face-paint (3).webp',
+            'assets/images/face-paint (4).webp',
+            'assets/images/face-paint (5).webp'
         ]
     },
     {
@@ -19,33 +18,33 @@ const albums = [
         description: 'Various events and excursions',
         imageCount: 10,
         imagePaths: [
-            'images/232.webp',
-            'images/191.webp',
-            'images/317.webp',
-            'images/544.webp',
-            'images/554.webp',
-            'images/574.webp',
-            'images/581.webp',
-            'images/787.webp',
-            'images/864.webp',
-            'images/93.webp'
+            'assets/images/232.webp',
+            'assets/images/191.webp',
+            'assets/images/317.webp',
+            'assets/images/544.webp',
+            'assets/images/554.webp',
+            'assets/images/574.webp',
+            'assets/images/581.webp',
+            'assets/images/787.webp',
+            'assets/images/864.webp',
+            'assets/images/93.webp'
         ]
     },
     {
         id: 'supplementary-school',
         title: 'Supplementary School',
         description: 'Educational activities and achievements',
-        imageCount: 10,
+        imageCount: 9,
         imagePaths: [
-            'images/ROA.webp',
-            'images/ROA1.webp',
-            'images/ROA2.webp',
-            'images/ROA3.webp',
-            'images/ROA4.webp',
-            'images/ROA5.webp',
-            'images/ROA7.jpg',
-            'images/ROA8.jpg',
-            'images/ROA10.jpg'
+            'assets/images/ROA.webp',
+            'assets/images/ROA1.webp',
+            'assets/images/ROA2.webp',
+            'assets/images/ROA3.webp',
+            'assets/images/ROA4.webp',
+            'assets/images/ROA5.webp',
+            'assets/images/ROA7.jpg',
+            'assets/images/ROA8.jpg',
+            'assets/images/ROA10.jpg'
         ]
     }
 ];
@@ -53,11 +52,6 @@ const albums = [
 // State management
 let currentAlbum = null;
 let currentImageIndex = 0;
-
-// Helper function to get correct image path for GitHub Pages
-function getImagePath(path) {
-    return `${REPO_PATH}/${path}`;
-}
 
 // Lightbox functions
 function openLightbox(albumId, imageIndex) {
@@ -68,17 +62,13 @@ function openLightbox(albumId, imageIndex) {
     const lightboxImg = document.getElementById('lightbox-img');
     const count = document.getElementById('image-count');
     
-    if (!lightbox || !lightboxImg || !count) {
+    if (!lightbox || !lightboxImg) {
         console.error('Required lightbox elements not found');
         return;
     }
     
-    // Set image source with proper path
-    lightboxImg.src = getImagePath(currentAlbum.imagePaths[currentImageIndex]);
+    lightboxImg.src = currentAlbum.imagePaths[currentImageIndex];
     lightboxImg.alt = `${currentAlbum.title} photo ${currentImageIndex + 1}`;
-    
-    // Update image counter
-    count.textContent = `${currentImageIndex + 1} / ${currentAlbum.imagePaths.length}`;
     
     // Show lightbox
     lightbox.classList.add('active');
@@ -103,11 +93,10 @@ function navigateImage(direction) {
     const lightboxImg = document.getElementById('lightbox-img');
     const count = document.getElementById('image-count');
     
-    if (!lightboxImg || !count) return;
+    if (!lightboxImg) return;
     
-    lightboxImg.src = getImagePath(currentAlbum.imagePaths[currentImageIndex]);
+    lightboxImg.src = currentAlbum.imagePaths[currentImageIndex];
     lightboxImg.alt = `${currentAlbum.title} photo ${currentImageIndex + 1}`;
-    count.textContent = `${currentImageIndex + 1} / ${currentAlbum.imagePaths.length}`;
 }
 
 function handleKeyPress(e) {
@@ -138,10 +127,10 @@ function showAlbum(albumId) {
     
     albumTitle.textContent = album.title;
     
-    // Create photo grid with proper image paths
+    // Create photo grid
     photosGrid.innerHTML = album.imagePaths.map((imagePath, index) => `
         <div class="photo-item" onclick="openLightbox('${albumId}', ${index})">
-            <img src="${getImagePath(imagePath)}" 
+            <img src="${imagePath}" 
                  alt="${album.title} photo ${index + 1}"
                  loading="lazy">
         </div>
@@ -164,7 +153,10 @@ function showAlbums() {
 // Create album cards
 function createAlbumCards() {
     const albumsGrid = document.getElementById('albumsGrid');
-    if (!albumsGrid) return;
+    if (!albumsGrid) {
+        console.error('Albums grid element not found');
+        return;
+    }
     
     albumsGrid.innerHTML = albums.map(album => `
         <div class="card" onclick="showAlbum('${album.id}')">
@@ -191,9 +183,16 @@ function createAlbumCards() {
 
 // Initialize gallery when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
+    console.log('Gallery initialization started');
     createAlbumCards();
     
-    // Debug image paths
-    console.log('Repository path:', REPO_PATH);
-    console.log('Sample image path:', getImagePath(albums[0].imagePaths[0]));
+    // Add click event to close lightbox when clicking outside the image
+    const lightbox = document.getElementById('lightbox');
+    if (lightbox) {
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) {
+                closeLightbox();
+            }
+        });
+    }
 });
