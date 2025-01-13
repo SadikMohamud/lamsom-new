@@ -833,6 +833,108 @@ banner
     display: block;
     margin: 0 auto;
 }
+
+/* Large Devices (Desktops & Laptops) */
+@media (max-width: 1200px) {
+    .main-banner .caption {
+        width: 90%;
+    }
+    
+    .main-banner .caption img {
+        width: 400px;
+        height: 302px;
+    }
+}
+
+/* Medium Devices (Tablets) */
+@media (max-width: 992px) {
+    .main-banner .caption h2 {
+        font-size: 64px;
+    }
+
+    .main-banner .caption img {
+        width: 360px;
+        height: 272px;
+    }
+}
+
+/* Small Devices (Large Phones) */
+@media (max-width: 768px) {
+    .main-banner .caption {
+        width: 95%;
+    }
+
+    .main-banner .caption h6 {
+        font-size: 16px;
+    }
+
+    .main-banner .caption h2 {
+        font-size: 48px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+    .main-banner .caption img {
+        width: 300px;
+        height: 226px;
+    }
+}
+
+/* Extra Small Devices (Small Phones) */
+@media (max-width: 576px) {
+    .main-banner .caption h6 {
+        font-size: 14px;
+    }
+
+    .main-banner .caption h2 {
+        font-size: 36px;
+        margin-top: 15px;
+        margin-bottom: 15px;
+    }
+
+    .main-banner .caption img {
+        width: 240px;
+        height: 181px;
+    }
+}
+
+/* Very Small Devices */
+@media (max-width: 380px) {
+    .main-banner .caption h6 {
+        font-size: 12px;
+    }
+
+    .main-banner .caption h2 {
+        font-size: 30px;
+    }
+
+    .main-banner .caption img {
+        width: 200px;
+        height: 151px;
+    }
+}
+
+/* Landscape Mode */
+@media (max-height: 600px) and (orientation: landscape) {
+    .main-banner .caption {
+        top: 60%;
+    }
+
+    .main-banner .caption h6 {
+        font-size: 14px;
+    }
+
+    .main-banner .caption h2 {
+        font-size: 36px;
+        margin-top: 15px;
+        margin-bottom: 15px;
+    }
+
+    .main-banner .caption img {
+        width: 240px;
+        height: 181px;
+    }
+}
 /*
 ---------------------------------------------
 features
