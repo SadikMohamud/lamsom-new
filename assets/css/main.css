@@ -829,7 +829,27 @@ banner
   color: #3bd5c8;
   font-weight: 900;
 }
+.video-overlay .caption {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
 
+.video-overlay .caption h6 {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 20px;  /* Adjust space between text and logo as needed */
+}
+
+.video-overlay .caption img {
+    margin: 0 auto;
+    display: block;
+    /* Keep your existing width and height */
+    width: 440px;
+    height: 332px;
+}
 
 /*
 ---------------------------------------------
