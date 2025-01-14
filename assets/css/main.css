@@ -691,21 +691,7 @@ banner
 }
 
 
-.main-banner .caption h2 {
-  margin-top: 30px;
-  margin-bottom: 25px;
-  font-size: 84px;
-  text-transform: uppercase;
-  font-weight: 800;
-  color: #fff;
-  letter-spacing: 1px;
-}
 
-.main-banner .caption h2 em {
-  font-style: normal;
-  color: #3bd5c8;
-  font-weight: 900;
-}
 /*
 ---------------------------------------------
 features
@@ -1474,42 +1460,7 @@ preloader
     border-radius: 50%;
 }
 /* 
----------------------------------------------
-dark-mode toggle switch
---------------------------------------------- 
-*/
-/* ...existing code... */
 
-/* 
----------------------------------------------
-dark-mode toggle switch
---------------------------------------------- 
-*/
-body.dark-mode {
-  background-color: #121212;
-  color: #ffffff;
-}
-
-body.dark-mode a {
-  color: #ffffff;
-}
-
-body.dark-mode .header-area {
-  background-color: #1f1f1f;
-}
-
-body.dark-mode .caption h1,
-body.dark-mode .caption h3 {
-  color: #ffffff;
-}
-
-body.dark-mode *:not(em) {
-  color: #ffffff;
-}
-
-/* Add more dark mode styles as needed */
-
-/* 
 ---------------------------------------------
 responsive
 --------------------------------------------- 
@@ -1585,9 +1536,7 @@ responsive
 
 @media (max-width: 992px) {
 
-  .main-banner .caption h2 {
-    font-size: 64px;
-  }
+  
   #features {
     margin-bottom: 110px;
   }
@@ -1600,15 +1549,6 @@ responsive
   }
   .trainer-item {
     margin-bottom: 30px;
-  }
-  #contact-us #map {
-    margin-bottom: -7px;
-  }
-  #contact-us .contact-form {
-    padding: 30px;
-  }
-  #contact-us .contact-form #contact {
-    padding: 30px;
   }
 
 }
