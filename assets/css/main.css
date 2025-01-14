@@ -1470,6 +1470,11 @@ preloader
 responsive
 --------------------------------------------- 
 */
+@media (max-width: 768px) {
+    .caption h2 {
+        font-size: 48px !important;
+    }
+}
 /* ...existing code... */
 /*------------------------
 contact page------------*/
