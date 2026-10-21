@@ -120,9 +120,14 @@
 
   if (!hasGsap || reduce) return;
 
-  /* Hero logo writes itself in, left to right */
-  const heroLogo = $("#js-hero-logo");
-  if (heroLogo) gsap.fromTo(heroLogo, { clipPath: "inset(0 100% 0 0)", y: 20 }, { clipPath: "inset(0 0% 0 0)", y: 0, duration: 1.8, ease: "power3.inOut", delay: 0.2 });
+  /* Glass header reads light over dark sections */
+  const top = $(".top");
+  if (top) $$(".proverb, .foot, .visit, #js-hero").forEach((sec) => {
+    ScrollTrigger.create({
+      trigger: sec, start: "top 60px", end: "bottom 60px",
+      onToggle: (st) => { if (sec.id === "js-hero") return; top.classList.toggle(sec.classList.contains("visit") ? "on-teal" : "on-dark", st.isActive); }
+    });
+  });
 
   /* Hero: arch opens into the full frame */
   const frame = $("#js-frame");
@@ -133,18 +138,17 @@
     const paint = () => {
       const p = state.p;
       const e = gsap.parseEase("power2.inOut")(Math.min(p / 0.8, 1));
-      const side = (mobile() ? 14 : 36) * (1 - e);
-      const top = (mobile() ? 38 : 45) * (1 - e);
-      const bottom = (mobile() ? 18 : 8) * (1 - e);
+      const side = (mobile() ? 10 : 33) * (1 - e);
+      const inTop = (mobile() ? 16 : 14) * (1 - e);
+      const bottom = (mobile() ? 18 : 6) * (1 - e);
       frame.style.setProperty("--is", side + "%");
-      frame.style.setProperty("--it", top + "%");
+      frame.style.setProperty("--it", inTop + "%");
       frame.style.setProperty("--ib", bottom + "%");
       frame.style.setProperty("--r", (1 - e) * 600 + "px");
       frame.style.setProperty("--vs", 1.25 - 0.25 * e);
       const shade = gsap.utils.clamp(0, 1, (p - 0.55) / 0.3);
       hero.style.setProperty("--shade", shade);
-      $(".hero__title").style.transform = `translateY(${-e * 30}vh)`;
-      $(".hero__title").style.opacity = 1 - e * 1.2;
+      if (top) top.classList.toggle("on-dark", e > 0.55);
       $$(".hero__side, .hero__since").forEach((el) => (el.style.opacity = Math.max(0, 1 - e * 4)));
     };
     paint();
